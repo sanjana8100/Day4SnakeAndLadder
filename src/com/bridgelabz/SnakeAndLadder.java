@@ -1,5 +1,7 @@
 package com.bridgelabz;
 
+import java.util.Scanner;
+
 public class SnakeAndLadder {
     public static void main(String[] args) {
         System.out.println("Welcome to snake and ladder game.");
@@ -7,7 +9,7 @@ public class SnakeAndLadder {
         int player=0;
         int endPos =100;
         System.out.println("Starting position is :- "+startPos);
-        while(true) {
+        while(player<=endPos) {
             System.out.println("Do you want to Roll a Dice: \n 1: YES \t 2: NO \t");
             Scanner sc = new Scanner(System.in);
             int WantToPlay = sc.nextInt();
@@ -22,6 +24,10 @@ public class SnakeAndLadder {
                 } else if (check == 2) {
                     System.out.println("You got Snake! Moving behind by "+dice+" positions.");
                     player -= dice;
+                    if(player<0){
+                        System.out.println("The Position will be less than 0. So Starting Again!!!");
+                        player=0;
+                    }
                 } else {
                     System.out.println("You got NO-Play! Thus, staying in the same position.");
                 }
