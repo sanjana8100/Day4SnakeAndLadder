@@ -8,6 +8,7 @@ public class SnakeAndLadder {
         int dice=0;
         int player=0;
         int endPos =100;
+        int DiceRollCount=0;
         int needToWin = endPos-player;
         while(player<=endPos) {
             System.out.println("Do you want to Roll a Dice: \n 1: YES \t 2: NO \t");
@@ -18,6 +19,7 @@ public class SnakeAndLadder {
                 dice = (int) Math.floor(Math.random() * 10) % 7;
                 System.out.println("Current Player Position is: "+player);
                 System.out.println("The number after rolling the dice: " + dice);
+                DiceRollCount++;
                 int check = (int) Math.floor(Math.random() * 10) % 3;
                 if (check == 1) {
                     System.out.println("You got ladder! Moving ahead by " + dice + " positions.");
@@ -39,12 +41,13 @@ public class SnakeAndLadder {
             }
         }
         if(player==endPos){
-            System.out.println("***********************************************************************************");
             System.out.println("Winner!!!");
+            System.out.println("Number of times the dice was rolled to WIN the game: "+DiceRollCount);
         }
-        else if(player>endPos){
+        else{
             player-=dice;
             System.out.println("Reached position greater than 100. Thus, Current New Player Position is "+player);
         }
+
     }
 }
